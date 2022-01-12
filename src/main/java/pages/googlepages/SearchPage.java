@@ -1,22 +1,23 @@
 package pages.googlepages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
 
-public class SearchPage {
-
-    WebDriver driver;
+public class SearchPage extends BasePage {
 
     public SearchPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public WebElement searchInput() {
-        return driver.findElement(By.cssSelector("input[class='gLFyf gsfi']"));
-    }
+    @FindBy(css = "input[class='gLFyf gsfi']")
+    private WebElement searchInput;
 
-    public WebElement searchButton() {
-        return driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]"));
+    @FindBy(xpath = "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]")
+    private WebElement searchButton;
+
+    public void typeText() {
+        searchInput.sendKeys("private WebElement searchInput;");
     }
 }

@@ -9,6 +9,6 @@ public class GoogleTests extends BaseTest {
     @Test
     public void test() {
         SearchPage searchPage = new SearchPage(driver);
-        searchPage.searchInput().sendKeys("automation test one");
+        searchPage.typeText();
     }
 }
