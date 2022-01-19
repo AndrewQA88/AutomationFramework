@@ -4,6 +4,6 @@
 /build/
 
 workspace.xml
-
+application.log
 # Compiled class file
 *.class
