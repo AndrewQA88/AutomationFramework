@@ -4,9 +4,9 @@ import java.util.ResourceBundle;
 
 public class ResourceBundleFileReader {
 
-    private static final ResourceBundle rb = ResourceBundle.getBundle("autotest");
+    private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("autotest");
 
-    public static String getProperty(String property) {
-        return rb.getString(property);
+    public static String getProperty(String propertyName) {
+        return resourceBundle.getString(propertyName);
     }
 }

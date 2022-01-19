@@ -1,9 +1,11 @@
 package pages.googlepages;
 
+import Utils.Waiters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+
 
 public class SearchPage extends BasePage {
 
@@ -12,12 +14,12 @@ public class SearchPage extends BasePage {
     }
 
     @FindBy(css = "input[class='gLFyf gsfi']")
-    private WebElement searchInput;
+    private WebElement searchField;
 
-    @FindBy(xpath = "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]")
-    private WebElement searchButton;
-
-    public void typeText() {
-        searchInput.sendKeys("private WebElement searchInput;");
+    public void typeTextInSearchField(String searchText) {
+        log.info("Wait for search field until present.");
+        Waiters.waitUntilPresent(driver, 30, 5);
+        searchField.sendKeys(searchText);
+        log.info("Text is inserted into search field.");
     }
 }

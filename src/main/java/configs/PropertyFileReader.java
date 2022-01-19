@@ -1,9 +1,6 @@
 package configs;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 public class PropertyFileReader {
@@ -11,7 +8,8 @@ public class PropertyFileReader {
 
     public PropertyFileReader() {
         BufferedReader reader;
-        String propertyFilePath = "src/main/resources/autotest.properties";
+        String propertyFilePath = "src" + File.separator + "main" + File.separator + "resources"
+                + File.separator + "autotest.properties";
         try {
             reader = new BufferedReader(new FileReader(propertyFilePath));
             properties = new Properties();
@@ -23,15 +21,16 @@ public class PropertyFileReader {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            throw new RuntimeException("configuration.properties not found at " + propertyFilePath);
+            throw new RuntimeException(e.getMessage() + " configuration.properties not found at " + propertyFilePath);
         }
     }
 
-    public String getProperty(String property) {
-        String url = properties.getProperty(property);
-        if (url != null) return url;
-        else {
-            throw new RuntimeException("property not specified in the configuration.properties file.");
+    public String getProperty(String propertyName) {
+        String url = properties.getProperty(propertyName);
+        if (url != null) {
+            return url;
+        } else {
+            throw new RuntimeException("property " + "'" + propertyName + "'" + " is not specified in the configuration.properties file.");
         }
     }
 }
