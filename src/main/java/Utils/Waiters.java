@@ -1,10 +1,10 @@
 package Utils;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
@@ -14,20 +14,32 @@ import java.util.function.Function;
 
 public class Waiters {
 
-    public static final Logger log = Logger.getLogger("baseTest");
+    private static final Logger log = Logger.getLogger(Waiters.class);
 
-    public static void waitUntilPresent(WebDriver driver, int timeout, int polling) {
-        log.info("Fluent waiter is working.");
+    public static void waitUntilPresent(WebDriver driver, WebElement element, int timeoutInSeconds, int pollingInSeconds) {
+        log.info("Fluent waiter is waiting " + timeoutInSeconds + " sec for element and polling every " +
+                pollingInSeconds + " sec.");
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(timeout))
-                .pollingEvery(Duration.ofSeconds(polling))
+                .withTimeout(Duration.ofSeconds(timeoutInSeconds))
+                .pollingEvery(Duration.ofSeconds(pollingInSeconds))
+                .ignoring(NoSuchElementException.class)
+                .withMessage("Element is not found on page.");
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static void waitAndRefreshUntilPresent(WebDriver driver, WebElement element, int timeoutInSeconds, int pollingInSeconds) {
+        log.info("Fluent waiter is waiting " + timeoutInSeconds + " sec for element and polling every " +
+                pollingInSeconds + " sec.");
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(timeoutInSeconds))
+                .pollingEvery(Duration.ofSeconds(pollingInSeconds))
                 .ignoring(NoSuchElementException.class)
                 .withMessage("Element is not found on page.");
 
-        WebElement ToDoExpense = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
+        wait.until(new Function<WebDriver, Boolean>() {
+            public Boolean apply(WebDriver driver) {
                 driver.navigate().refresh();
-                return driver.findElement(By.cssSelector("input[class='gLFyf gsfi']"));
+                return element.isDisplayed();
             }
         });
     }
