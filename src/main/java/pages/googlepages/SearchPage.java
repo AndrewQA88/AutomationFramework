@@ -1,22 +1,25 @@
 package pages.googlepages;
 
 import Utils.Waiters;
+import configs.ResourceBundleFileReader;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
 
 
 public class SearchPage extends BasePage {
 
-    private static final Logger log = Logger.getLogger(SearchPage.class);
+    int timeout = Integer.parseInt(ResourceBundleFileReader.getProperty("explicitlyWaitTimeOut"));
 
-    public SearchPage(WebDriver driver) {
-        super(driver);
-    }
+    WebDriverWait wait = new WebDriverWait(driver,30);
 
-    @FindBy(css = "input[class='gLFyf gsfi']")
+    private static final Logger LOG = Logger.getLogger(SearchPage.class);
+
+    @FindBy(xpath = "//input[@title='Search']")
     private WebElement searchField;
 
     @FindBy(className = "gNO89b")
@@ -28,24 +31,18 @@ public class SearchPage extends BasePage {
     @FindBy(xpath = "//div[@class='uU7dJb']")
     private WebElement languageIndicator;
 
-
-    public void checkLanguage() {
-        log.info("Checking page language.");
-        if (!languageIndicator.getText().equals("Ukraine")) {
-            languageButton.click();
-            log.info("Language is set to English.");
-        } else
-            log.info("Current language is English.");
+    public SearchPage(WebDriver driver) {
+        super(driver);
     }
 
     public ResultPage typeTextInSearchField(String searchText) {
-        checkLanguage();
+        wait.until(ExpectedConditions.visibilityOf(searchField));
         searchField.sendKeys(searchText);
-        log.info("Text '" + searchText + "' is inserted into search field." );
-        Waiters.waitUntilPresent(driver, searchButton, 30, 5);
-        log.info("Click on search button.");
+        LOG.info("Text '" + searchText + "' is inserted into search field.");
+        Waiters.waitUntilPresent(driver, searchButton, timeout, 5);
+        LOG.info("Click on search button.");
         searchButton.click();
-        log.info("Result page is opened.");
+        LOG.info("Result page is opened.");
         return new ResultPage(this.driver);
     }
 }

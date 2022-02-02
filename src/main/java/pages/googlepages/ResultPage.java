@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ResultPage extends BasePage {
 
-    private static final Logger log = Logger.getLogger(ResultPage.class);
+    private static final Logger LOG = Logger.getLogger(ResultPage.class);
 
     public ResultPage(WebDriver driver) {
         super(driver);
@@ -22,12 +22,12 @@ public class ResultPage extends BasePage {
 
     private List<WebElement> listOfResults = driver.findElements(By.xpath("//*[@class='TbwUpd NJjxre']"));
 
-    public int getListOfResults() {
+    public int getSizeOfList() {
         return listOfResults.size();
     }
 
-    public void showResultNumber() {
-        log.info(results.getText());
-        log.info("Results on page: " + listOfResults.size());
+    public void printAmountOfResults() {
+        LOG.info(results.getText());
+        LOG.info("Results on page: " + listOfResults.size());
     }
 }

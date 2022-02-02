@@ -9,4 +9,6 @@ public class ResourceBundleFileReader {
     public static String getProperty(String propertyName) {
         return resourceBundle.getString(propertyName);
     }
+
+
 }

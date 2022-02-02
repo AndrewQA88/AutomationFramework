@@ -14,10 +14,10 @@ import java.util.function.Function;
 
 public class Waiters {
 
-    private static final Logger log = Logger.getLogger(Waiters.class);
+    private static final Logger LOG = Logger.getLogger(Waiters.class);
 
     public static void waitUntilPresent(WebDriver driver, WebElement element, int timeoutInSeconds, int pollingInSeconds) {
-        log.info("Fluent waiter is waiting " + timeoutInSeconds + " sec for element and polling every " +
+        LOG.info("Fluent waiter is waiting " + timeoutInSeconds + " sec for element and polling every " +
                 pollingInSeconds + " sec.");
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(timeoutInSeconds))
@@ -28,7 +28,7 @@ public class Waiters {
     }
 
     public static void waitAndRefreshUntilPresent(WebDriver driver, WebElement element, int timeoutInSeconds, int pollingInSeconds) {
-        log.info("Fluent waiter is waiting " + timeoutInSeconds + " sec for element and polling every " +
+        LOG.info("Fluent waiter is waiting " + timeoutInSeconds + " sec for element and polling every " +
                 pollingInSeconds + " sec.");
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(timeoutInSeconds))

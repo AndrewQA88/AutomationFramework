@@ -14,7 +14,7 @@ public class GoogleTests extends BaseTest {
         SearchPage searchPage = new SearchPage(driver);
         searchPage.typeTextInSearchField("Skelia");
         ResultPage resultPage = new ResultPage(driver);
-        resultPage.showResultNumber();
-        Assert.assertTrue(resultPage.getListOfResults() >= 7);
+        resultPage.printAmountOfResults();
+        Assert.assertTrue(resultPage.getSizeOfList() >= 7);
     }
 }

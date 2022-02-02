@@ -9,11 +9,8 @@ import pages.BasePage;
 
 public class TextBoxPage extends BasePage {
 
-    private static final Logger log = Logger.getLogger(TextBoxPage.class);
-
-    public TextBoxPage(WebDriver driver) {
-        super(driver);
-    }
+    private static final Logger LOG = Logger.getLogger(TextBoxPage.class);
+    private final String ADDRESS = "//div[@class='border col-md-12 col-sm-12']";
 
     @FindBy(id = "userName")
     private WebElement userName;
@@ -36,11 +33,15 @@ public class TextBoxPage extends BasePage {
     @FindBy(xpath = "//*[@id='email']")
     private WebElement emailInCard;
 
-    @FindBy(xpath = "//div[@class='border col-md-12 col-sm-12']/p[@id='currentAddress']")
+    @FindBy(xpath = ADDRESS + "/p[@id='currentAddress']")
     private WebElement currentAddressInCard;
 
-    @FindBy(xpath = "//div[@class='border col-md-12 col-sm-12']/p[@id='permanentAddress']")
+    @FindBy(xpath = ADDRESS + "/p[@id='permanentAddress']")
     private WebElement permanentAddressInCard;
+
+    public TextBoxPage(WebDriver driver) {
+        super(driver);
+    }
 
     public String getNameInCard() {
         return nameInCard.getText();
@@ -63,15 +64,15 @@ public class TextBoxPage extends BasePage {
     }
 
     public void fillTextForm(String userName, String userEmail, String currentAddress, String permanentAddress) {
-        log.info("Type full name: " + userName);
+        LOG.info("Type full name: " + userName);
         this.userName.sendKeys(userName);
-        log.info("Type email: " + userEmail);
+        LOG.info("Type email: " + userEmail);
         this.userEmail.sendKeys(userEmail);
-        log.info("Type current address: " + currentAddress);
+        LOG.info("Type current address: " + currentAddress);
         this.currentAddress.sendKeys(currentAddress);
-        log.info("Type permanent address: " + permanentAddress);
+        LOG.info("Type permanent address: " + permanentAddress);
         this.permanentAddress.sendKeys(permanentAddress);
-        log.info("Press submit");
+        LOG.info("Press submit");
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].click();", submit);
     }

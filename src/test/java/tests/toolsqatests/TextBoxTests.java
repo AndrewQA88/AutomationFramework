@@ -7,15 +7,20 @@ import tests.base.BaseTest;
 
 public class TextBoxTests extends BaseTest {
 
+    private String userName = "Jane Samples";
+    private String userEmail = "notreal@email.com";
+    private String currentAddress = "1234 Anywhere Lane";
+    private String permanentAddress = "123 Main Street";
+
     @Test(enabled = true)
     public void fillTextBoxes() {
         TextBoxPage textBoxPages = new TextBoxPage(driver);
         textBoxPages.openTextBoxPage();
-        textBoxPages.fillTextForm("Jane Samples", "notreal@email.com",
-                "1234 Anywhere Lane", "123 Main Street");
-        Assert.assertEquals(textBoxPages.getNameInCard(), "Name:Jane Samples");
-        Assert.assertEquals(textBoxPages.getEmailInCard(), "Email:notreal@email.com");
-        Assert.assertEquals(textBoxPages.getCurrentAddressInCard(), "Current Address :1234 Anywhere Lane");
-        Assert.assertEquals(textBoxPages.getPermanentAddressInCard(), "Permananet Address :123 Main Street");
+        textBoxPages.fillTextForm(userName, userEmail,
+                currentAddress, permanentAddress);
+        Assert.assertEquals(textBoxPages.getNameInCard(), "Name:" + userName , "User name from result do not much.");
+        Assert.assertEquals(textBoxPages.getEmailInCard(), "Email:" + userEmail, "Email from result do not much.");
+        Assert.assertEquals(textBoxPages.getCurrentAddressInCard(), "Current Address :" + currentAddress, "Current address from result do not much.");
+        Assert.assertEquals(textBoxPages.getPermanentAddressInCard(), "Permananet Address :" + permanentAddress, "Permanent address from result do not much.");
     }
 }
