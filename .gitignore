@@ -3,9 +3,7 @@
 /target/
 /build/
 
-ajcore*.txt
-runIdKeeperFile.txt
 workspace.xml
-
+application.log
 # Compiled class file
 *.class

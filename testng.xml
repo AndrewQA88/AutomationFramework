@@ -3,7 +3,7 @@
 <suite name="All Test Suit">
     <test name="Regression">
         <classes>
-            <class name="tests.googletests.GoogleTests"></class>
+            <class name="tests.googletests.GoogleTests"/>
         </classes>
     </test>
 </suite>

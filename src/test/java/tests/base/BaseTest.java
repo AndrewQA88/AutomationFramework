@@ -1,24 +1,36 @@
 package tests.base;
 
+
+import Utils.WebDriverManager;
+import configs.ResourceBundleFileReader;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 
+
 public class BaseTest {
 
-    public WebDriver driver;
+    private final String BASEURL = ResourceBundleFileReader.getProperty("baseUrl");
+    protected WebDriver driver;
+    private final Logger LOG = Logger.getLogger(BaseTest.class);
+
+    public String getBaseUrl() {
+        return BASEURL;
+    }
 
     @BeforeTest
-    public void setUpChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("https://www.google.com/");
-        driver.manage().window().maximize();
+    public void setUpDriver() {
+        driver = WebDriverManager.getDriver();
+        driver.get(getBaseUrl());
+        LOG.info("URL " + getBaseUrl() + " is opened.");
+        LOG.info("Window size is set to dimension (width 1920, height 1080).");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void closeDriver() {
-        driver.close();
+        driver.quit();
+        LOG.info("Tests finished.");
     }
 }
+
