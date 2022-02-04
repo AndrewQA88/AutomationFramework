@@ -16,6 +16,9 @@ public class WebDriverManager {
 
     private static final String WINDOW_WIDTH = ResourceBundleFileReader.getProperty("windowWidth");
     private static final String WINDOW_HEIGHT = ResourceBundleFileReader.getProperty("windowHeight");
+    private static String defaultDirectory = "download.default_directory";
+    private static String testOutput = "test-output";
+    private static String downloadLocation = "default-download-location";
     private static final Logger LOG = Logger.getLogger(WebDriverManager.class);
 
     public static WebDriver getDriver() {
@@ -24,7 +27,7 @@ public class WebDriverManager {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--incognito");
             options.addArguments("--disable-notifications");
-            options.addArguments("download.default_directory", "test-output" + File.pathSeparator + "default-download-location");
+            options.addArguments(defaultDirectory, testOutput + File.pathSeparator + downloadLocation);
             options.addArguments(String.format("--window-size=%s,%s", WINDOW_WIDTH, WINDOW_HEIGHT));
             options.addArguments("--lang=en-GB");
             System.setProperty("webdriver.chrome.driver", ResourceBundleFileReader.getProperty("chromeDriverPath"));
@@ -33,7 +36,7 @@ public class WebDriverManager {
             LOG.info("Getting new firefox WebDriver");
             FirefoxProfile profile = new FirefoxProfile();
             profile.setPreference("intl.accept_languages", "en-GB");
-            profile.setPreference("download.default_directory", "test-output" + File.pathSeparator + "default-download-location");
+            profile.setPreference(defaultDirectory, testOutput + File.pathSeparator + downloadLocation);
             FirefoxOptions options = new FirefoxOptions();
             options.setProfile(profile);
             options.addArguments("-private");
@@ -42,7 +45,7 @@ public class WebDriverManager {
             System.setProperty("webdriver.gecko.driver", ResourceBundleFileReader.getProperty("firefoxDriverPath"));
             return new FirefoxDriver(options);
         }
-        LOG.fatal("Unsupported browser. Only 'chrome' and 'firefox' are supported by tests.");
+        LOG.info(String.format("%s is unsupported browser. Only 'chrome' and 'firefox' are supported by tests.", ResourceBundleFileReader.getProperty("browser")));
         return null;
     }
 }
