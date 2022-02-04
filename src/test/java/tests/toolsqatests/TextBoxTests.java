@@ -18,9 +18,9 @@ public class TextBoxTests extends BaseTest {
         textBoxPages.openTextBoxPage();
         textBoxPages.fillTextForm(userName, userEmail,
                 currentAddress, permanentAddress);
-        Assert.assertEquals(textBoxPages.getNameInCard(), "Name:" + userName , "User name from result do not much.");
-        Assert.assertEquals(textBoxPages.getEmailInCard(), "Email:" + userEmail, "Email from result do not much.");
-        Assert.assertEquals(textBoxPages.getCurrentAddressInCard(), "Current Address :" + currentAddress, "Current address from result do not much.");
-        Assert.assertEquals(textBoxPages.getPermanentAddressInCard(), "Permananet Address :" + permanentAddress, "Permanent address from result do not much.");
+        Assert.assertEquals(textBoxPages.getNameInCard(), "Name:" + userName, "User name from result do not match.");
+        Assert.assertEquals(textBoxPages.getEmailInCard(), "Email:" + userEmail, "Email from result do not match.");
+        Assert.assertEquals(textBoxPages.getCurrentAddressInCard(), "Current Address :" + currentAddress, "Current address from result do not match.");
+        Assert.assertEquals(textBoxPages.getPermanentAddressInCard(), "Permananet Address :" + permanentAddress, "Permanent address from result do not match.");
     }
 }

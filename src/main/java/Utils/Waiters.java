@@ -1,5 +1,6 @@
 package Utils;
 
+import configs.ResourceBundleFileReader;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -42,6 +43,14 @@ public class Waiters {
                 return element.isDisplayed();
             }
         });
+    }
+
+    public static int getExplicitlyWaitTimeOutInSeconds(){
+        return Integer.parseInt(ResourceBundleFileReader.getProperty("explicitlyWaitTimeOut"));
+    }
+
+    public static int getPollingInSeconds(){
+        return Integer.parseInt(ResourceBundleFileReader.getProperty("pollingInSeconds"));
     }
 }
 

@@ -1,7 +1,7 @@
 package pages.toolsqapages;
 
+import Utils.WebElementHelper;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,8 +9,7 @@ import pages.BasePage;
 
 public class TextBoxPage extends BasePage {
 
-    private static final Logger LOG = Logger.getLogger(TextBoxPage.class);
-    private final String ADDRESS = "//div[@class='border col-md-12 col-sm-12']";
+    private static final String ADDRESS = "//div[@class='border col-md-12 col-sm-12']";
 
     @FindBy(id = "userName")
     private WebElement userName;
@@ -38,6 +37,8 @@ public class TextBoxPage extends BasePage {
 
     @FindBy(xpath = ADDRESS + "/p[@id='permanentAddress']")
     private WebElement permanentAddressInCard;
+
+    private static final Logger LOG = Logger.getLogger(TextBoxPage.class);
 
     public TextBoxPage(WebDriver driver) {
         super(driver);
@@ -73,7 +74,6 @@ public class TextBoxPage extends BasePage {
         LOG.info("Type permanent address: " + permanentAddress);
         this.permanentAddress.sendKeys(permanentAddress);
         LOG.info("Press submit");
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].click();", submit);
+        WebElementHelper.jsClick(driver,submit);
     }
 }

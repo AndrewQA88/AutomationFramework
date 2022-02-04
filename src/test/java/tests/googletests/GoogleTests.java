@@ -12,9 +12,7 @@ public class GoogleTests extends BaseTest {
     @Test
     public void test() {
         SearchPage searchPage = new SearchPage(driver);
-        searchPage.typeTextInSearchField("Skelia");
-        ResultPage resultPage = new ResultPage(driver);
-        resultPage.printAmountOfResults();
-        Assert.assertTrue(resultPage.getSizeOfList() >= 7);
+        ResultPage resultPage = searchPage.typeTextInSearchField("Skelia").printAmountOfResults();
+        Assert.assertTrue( resultPage.getSizeOfList() >= 7 , "Expected number of results must be more than 6.");
     }
 }

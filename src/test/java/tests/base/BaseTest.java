@@ -11,9 +11,9 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
-    private final Logger LOG = Logger.getLogger(BaseTest.class);
     private final String BASEURL = ResourceBundleFileReader.getProperty("baseUrl");
     protected WebDriver driver;
+    private final Logger LOG = Logger.getLogger(BaseTest.class);
 
     public String getBaseUrl() {
         return BASEURL;
