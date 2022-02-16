@@ -7,10 +7,10 @@ import tests.base.BaseTest;
 
 public class TextBoxTests extends BaseTest {
 
-    private String userName = "Jane Samples";
-    private String userEmail = "notreal@email.com";
-    private String currentAddress = "1234 Anywhere Lane";
-    private String permanentAddress = "123 Main Street";
+    private final String userName = "Jane Samples";
+    private final String userEmail = "notreal@email.com";
+    private final String currentAddress = "1234 Anywhere Lane";
+    private final String permanentAddress = "123 Main Street";
 
     @Test(enabled = true)
     public void fillTextBoxes() {

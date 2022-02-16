@@ -1,6 +1,5 @@
 package pages.googlepages;
 
-import Utils.Waiters;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,10 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
+import utils.Waiters;
+import utils.WebElementHelper;
+
+import java.util.ArrayList;
 
 
 public class SearchPage extends BasePage {
-
 
     @FindBy(xpath = "//input[@title='Search']")
     private WebElement searchField;
@@ -42,4 +44,12 @@ public class SearchPage extends BasePage {
         LOG.info("Result page is opened.");
         return new ResultPage(this.driver);
     }
+
+    public SearchPage openNewTabAndSwitch() {
+        WebElementHelper.openNewWindow(driver, "https://www.google.com");
+        ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(1));
+        return new SearchPage(this.driver);
+    }
+
 }

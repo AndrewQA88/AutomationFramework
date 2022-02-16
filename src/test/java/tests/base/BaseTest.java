@@ -1,12 +1,12 @@
 package tests.base;
 
 
-import Utils.WebDriverManager;
 import configs.ResourceBundleFileReader;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import utils.WebDriverManager;
 
 
 public class BaseTest {
@@ -19,7 +19,7 @@ public class BaseTest {
         return BASEURL;
     }
 
-    @BeforeTest
+    @BeforeMethod
     public void setUpDriver() {
         driver = WebDriverManager.getDriver();
         driver.get(getBaseUrl());
@@ -27,7 +27,7 @@ public class BaseTest {
         LOG.info("Window size is set to dimension (width 1920, height 1080).");
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void closeDriver() {
         driver.quit();
         LOG.info("Tests finished.");
