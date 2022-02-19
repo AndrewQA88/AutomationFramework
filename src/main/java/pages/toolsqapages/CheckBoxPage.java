@@ -24,55 +24,55 @@ public class CheckBoxPage extends BasePage {
     private List<WebElement> items;
 
     @FindBy(xpath = "//input[@id='tree-node-home']")
-    WebElement homeCheckboxState;
+    private WebElement homeCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-desktop']")
-    WebElement desktopCheckboxState;
+    private WebElement desktopCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-notes']")
-    WebElement notesCheckboxState;
+    private WebElement notesCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-commands']")
-    WebElement commandsCheckboxState;
+    private WebElement commandsCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-documents']")
-    WebElement documentsCheckboxState;
+    private WebElement documentsCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-workspace']")
-    WebElement workspaceCheckboxState;
+    private WebElement workspaceCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-react']")
-    WebElement reactCheckboxState;
+    private WebElement reactCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-angular']")
-    WebElement angularCheckboxState;
+    private WebElement angularCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-veu']")
-    WebElement veuCheckboxState;
+    private WebElement veuCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-office']")
-    WebElement officeCheckboxState;
+    private WebElement officeCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-public']")
-    WebElement publicCheckboxState;
+    private WebElement publicCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-private']")
-    WebElement privateCheckboxState;
+    private WebElement privateCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-classified']")
-    WebElement classifiedCheckboxState;
+    private WebElement classifiedCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-general']")
-    WebElement generalCheckboxState;
+    private WebElement generalCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-downloads']")
-    WebElement downloadsCheckboxState;
+    private WebElement downloadsCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-wordFile']")
-    WebElement wordFileCheckboxState;
+    private WebElement wordFileCheckboxState;
 
     @FindBy(xpath = "//input[@id='tree-node-excelFile']")
-    WebElement excelFileCheckboxState;
+    private WebElement excelFileCheckboxState;
 
     private static final Logger LOG = Logger.getLogger(CheckBoxPage.class);
 

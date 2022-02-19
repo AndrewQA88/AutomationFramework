@@ -31,12 +31,4 @@ public class ResultPage extends BasePage {
         LOG.info("Results on page: " + getNumberOfResultsOnPage());
         return new ResultPage(driver);
     }
-
-    public static void compareSearchResults(int resultsFromFirstTab, int resultsFromSecondTab) {
-        if (resultsFromFirstTab == resultsFromSecondTab) {
-            LOG.info("There is the same number of results on first and second tab.");
-        } else {
-            LOG.info("There is different number of results on first and second tab.");
-        }
-    }
 }
