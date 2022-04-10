@@ -46,10 +46,13 @@ public class SearchPage extends BasePage {
     }
 
     public SearchPage openNewTabAndSwitch() {
-        WebElementHelper.openNewWindow(driver, "https://www.google.com");
+        WebElementHelper.openNewTab(driver, "https://www.google.com");
         ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
         return new SearchPage(this.driver);
     }
 
+    public void openNewWindowAndSwitch() {
+        //WebElementHelper.openNewWindow(driver,"https://www.google.com" );
+    }
 }

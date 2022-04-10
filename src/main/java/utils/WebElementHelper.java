@@ -15,7 +15,7 @@ public class WebElementHelper {
         jsExecutor.executeScript("arguments[0].click();", element);
     }
 
-    public static void openNewWindow(WebDriver driver, String pageUrl){
+    public static void openNewTab(WebDriver driver, String pageUrl){
         LOG.info("JS opens new window with URL: " + pageUrl);
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("window.open('"+pageUrl+"');");
