@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
-import utils.Alerts;
+import utils.AlertHelper;
 
 public class AlertsPage extends BasePage {
 
@@ -46,9 +46,9 @@ public class AlertsPage extends BasePage {
     public void handleInformationAlert() {
         LOG.info("Click button to information alert");
         alertButton.click();
-        LOG.info("Alert text is: " + Alerts.getAlertText(driver));
+        LOG.info("Alert text is: " + AlertHelper.getAlertText(driver));
         LOG.info("Accept alert.");
-        Alerts.acceptAlert(driver);
+        AlertHelper.acceptAlert(driver);
     }
 
     public void handleTimerAlert() {
@@ -56,32 +56,32 @@ public class AlertsPage extends BasePage {
         timerAlertButton.click();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.alertIsPresent());
-        LOG.info("Alert text is: " + Alerts.getAlertText(driver));
+        LOG.info("Alert text is: " + AlertHelper.getAlertText(driver));
         LOG.info("Accept alert.");
-        Alerts.acceptAlert(driver);
+        AlertHelper.acceptAlert(driver);
     }
 
     public void confirmAction() {
         LOG.info("Click on button");
         confirmBoxButton.click();
-        LOG.info("Alert text is: " + Alerts.getAlertText(driver));
+        LOG.info("Alert text is: " + AlertHelper.getAlertText(driver));
         LOG.info("Confirm alert.");
-        Alerts.acceptAlert(driver);
+        AlertHelper.acceptAlert(driver);
     }
 
     public void dismissAction() {
         LOG.info("Click on button");
         confirmBoxButton.click();
-        LOG.info("Alert text is: " + Alerts.getAlertText(driver));
+        LOG.info("Alert text is: " + AlertHelper.getAlertText(driver));
         LOG.info("Dismiss alert.");
-        Alerts.dismissAlert(driver);
+        AlertHelper.dismissAlert(driver);
     }
 
     public void handlePromptBox() {
         LOG.info("Click on button");
         promptButton.click();
         LOG.info("Type the name and accept alert.");
-        Alerts.sendKeysToAlert(driver, "Andrew");
-        Alerts.acceptAlert(driver);
+        AlertHelper.sendKeysToAlert(driver, "Andrew");
+        AlertHelper.acceptAlert(driver);
     }
 }

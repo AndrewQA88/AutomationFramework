@@ -8,9 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
 import utils.Waiters;
-import utils.WebElementHelper;
-
-import java.util.ArrayList;
+import utils.WindowHelper;
 
 
 public class SearchPage extends BasePage {
@@ -46,13 +44,7 @@ public class SearchPage extends BasePage {
     }
 
     public SearchPage openNewTabAndSwitch() {
-        WebElementHelper.openNewTab(driver, "https://www.google.com");
-        ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs2.get(1));
+        WindowHelper.openNewTab(driver, "https://www.google.com");
         return new SearchPage(this.driver);
-    }
-
-    public void openNewWindowAndSwitch() {
-        //WebElementHelper.openNewWindow(driver,"https://www.google.com" );
     }
 }

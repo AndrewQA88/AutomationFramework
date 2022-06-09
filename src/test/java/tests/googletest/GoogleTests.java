@@ -17,7 +17,7 @@ public class GoogleTests extends BaseTest {
         SearchPage searchPage = new SearchPage(driver);
         ResultPage resultPage = searchPage.typeTextInSearchField(SEARCH_TEXT).printAmountOfResults();
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(resultPage.getNumberOfResultsOnPage() > 6, "Expected number of results must be more than 6.");
+        softAssert.assertTrue(resultPage.getNumberOfResultsOnPage() > 10, "Expected number of results must be more than 6.");
         softAssert.assertAll();
     }
 

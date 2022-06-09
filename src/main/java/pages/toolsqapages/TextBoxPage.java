@@ -74,6 +74,6 @@ public class TextBoxPage extends BasePage {
         LOG.info("Type permanent address: " + permanentAddress);
         this.permanentAddress.sendKeys(permanentAddress);
         LOG.info("Press submit");
-        WebElementHelper.jsClick(driver,submit);
+        WebElementHelper.jsClick(driver, submit);
     }
 }

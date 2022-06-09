@@ -45,11 +45,11 @@ public class Waiters {
         });
     }
 
-    public static int getExplicitlyWaitTimeOutInSeconds(){
+    public static int getExplicitlyWaitTimeOutInSeconds() {
         return Integer.parseInt(ResourceBundleFileReader.getProperty("explicitlyWaitTimeOut"));
     }
 
-    public static int getPollingInSeconds(){
+    public static int getPollingInSeconds() {
         return Integer.parseInt(ResourceBundleFileReader.getProperty("pollingInSeconds"));
     }
 }

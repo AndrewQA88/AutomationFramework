@@ -8,9 +8,11 @@ import pages.BasePage;
 
 import java.util.List;
 
+import static org.apache.commons.lang3.StringUtils.INDEX_NOT_FOUND;
+
 public class WebTablePage extends BasePage {
 
-    WebElement rowText = driver.findElement(By.xpath(String.format("//*[@id='customers']/tbody/tr[2]/td[%s]", getColumnIndex())));
+    WebElement rowText = driver.findElement(By.xpath(String.format("//*[@id='customers']/tbody/tr[2]/td[%s]", getColumnIndex("Country"))));
 
     private static final Logger LOG = Logger.getLogger(WebTablePage.class);
 
@@ -18,15 +20,15 @@ public class WebTablePage extends BasePage {
         super(driver);
     }
 
-    public int getColumnIndex() {
+    public int getColumnIndex(String columnName) {
         List<WebElement> columnHeaders = driver.findElements(By.xpath("//*[@id='customers']/tbody/tr/th"));
         for (int i = 1; i <= columnHeaders.size(); i++) {
             WebElement columnHeader = driver.findElement(By.xpath(String.format("//*[@id='customers']/tbody/tr/th[%s]", i)));
-            if (columnHeader.getText().equals("Country")) {
+            if (columnHeader.getText().equals(columnName)) {
                 return i;
             }
         }
-        return -1;
+        return INDEX_NOT_FOUND;
     }
 
     public String getCellText() {

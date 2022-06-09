@@ -11,13 +11,12 @@ import java.io.IOException;
 
 public class ScreenshotManager {
 
-    public static  void failed(WebDriver driver, String testMethodName) {
+    public static void takeScreenshot(WebDriver driver, String testMethodName) {
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(srcFile, new File("test-output/screenshots/" + "screenshot_" + testMethodName + ".png"));
+            FileUtils.copyFile(srcFile, new File(String.format("test-output/screenshots/screenshot_%s.png", testMethodName)));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        driver.close();
     }
 }
