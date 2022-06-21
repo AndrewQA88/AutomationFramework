@@ -28,7 +28,7 @@ public class DragAndDropPage extends BasePage {
         super(driver);
     }
 
-    public void simpleDragAndDropTest(){
+    public void simpleDragAndDropTest() {
         LOG.info("Select simple test tab.");
         simpleTestTab.click();
         LOG.info("Drag and drop element.");

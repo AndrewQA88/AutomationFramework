@@ -17,4 +17,9 @@ public class WindowHelper {
         ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
     }
+
+    public static void switchToTab(WebDriver driver) {
+        ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(1));
+    }
 }
