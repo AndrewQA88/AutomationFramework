@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+import utils.Waiters;
 
 import java.io.File;
 
 public class DownloadUploadFilePage extends BasePage {
 
-    File folder = new File("C:" + File.separator + "Users" + File.separator + "a.hladkyi" + File.separator
+    public static File folder = new File("C:" + File.separator + "Users" + File.separator + "a.hladkyi" + File.separator
             + "automation-framework" + File.separator + "test-output" + File.separator + "default-download-location");
-    File[] files = null;
 
     @FindBy(id = "downloadButton")
     private WebElement downloadButton;
@@ -40,25 +40,13 @@ public class DownloadUploadFilePage extends BasePage {
         uploadButton.sendKeys(filePath);
     }
 
-    public boolean isFileInFolder() throws InterruptedException {
-        Thread.sleep(1000);
-        files = folder.listFiles();
-        boolean match = false;
-        for (File listOfFile : files) {
-            if (listOfFile.isFile()) {
-                String fileName = listOfFile.getName();
-                LOG.info("File name is " + listOfFile.getName());
-                if (fileName.matches("sampleFile.jpeg")) {
-                    LOG.info("File was downloaded.");
-                    match = true;
-                }
-            }
-        }
-        return match;
+    public boolean isFileInFolder(String expectedFileName) {
+        Waiters.waitUntilFilePresentInDirectory(driver, folder, expectedFileName);
+        return true;
     }
 
     public void cleanFolder() {
-        files = folder.listFiles();
+        File[] files = folder.listFiles();
         if (files != null) {
             for (File file : files) {
                 LOG.info("File: '" + file.getName() + "' deleted.");

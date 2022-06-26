@@ -14,8 +14,6 @@ public class BrokenLinkPage extends BasePage {
     @FindBy(tagName = "img")
     private List<WebElement> images;
 
-    @FindBy(linkText = "Click Here for Broken Link")
-
     private static final Logger LOG = Logger.getLogger(BrokenLinkPage.class);
 
     public BrokenLinkPage(WebDriver driver) {
@@ -30,7 +28,7 @@ public class BrokenLinkPage extends BasePage {
                     || imageUrl.equals("https://demoqa.com/images/Toolsqa.jpg")) {
                 LOG.info("URL of image  is: " + imageUrl);
                 WebElementHelper.verifyLink(imageUrl);
-                WebElementHelper.isImageDisplayed(driver, image);
+                WebElementHelper.checkImageDisplayed(driver, image);
             }
         }
     }

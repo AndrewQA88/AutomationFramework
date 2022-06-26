@@ -45,6 +45,6 @@ public class SearchPage extends BasePage {
 
     public SearchPage openNewTabAndSwitch() {
         WindowHelper.openNewTab(driver, "https://www.google.com");
-        return new SearchPage(this.driver);
+        return this;
     }
 }

@@ -19,7 +19,7 @@ public class WebElementHelper {
         jsExecutor.executeScript("arguments[0].click();", element);
     }
 
-    public static void isImageDisplayed(WebDriver driver, WebElement element) {
+    public static void checkImageDisplayed(WebDriver driver, WebElement element) {
         try {
             boolean imageDisplayed = (Boolean) ((JavascriptExecutor) driver).executeScript("return (typeof arguments[0].naturalWidth !=\"undefined\" && arguments[0].naturalWidth > 0);", element);
             if (imageDisplayed) {

@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +20,8 @@ public class WebDriverManager {
     private static final String WINDOW_WIDTH = ResourceBundleFileReader.getProperty("windowWidth");
     private static final String WINDOW_HEIGHT = ResourceBundleFileReader.getProperty("windowHeight");
     private static final String DOWNLOAD_DEFAULT_DIRECTORY = "download.default_directory";
-    private static final String LOCATION_PATH = "C:\\Users\\a.hladkyi\\automation-framework\\test-output\\default-download-location";
+    private static final String LOCATION_PATH = "C:" + File.separator + "Users" + File.separator + "a.hladkyi" + File.separator + "automation-framework"
+            + File.separator + "test-output" + File.separator + "default-download-location";
     private static final Logger LOG = Logger.getLogger(WebDriverManager.class);
 
     private static WebDriver driver;

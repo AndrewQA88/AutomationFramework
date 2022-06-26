@@ -11,8 +11,9 @@ public class JacksonParser {
 
     private static final Logger LOG = Logger.getLogger(JacksonParser.class);
 
-    public static void parseCarFromJsonToObject(Car car, String json) {
+    public static Car parseCarFromJsonToObject(String json) {
         ObjectMapper objectMapper = new ObjectMapper();
+        Car car = new Car();
         try {
             car = objectMapper.readValue(json, Car.class);
             LOG.info(car.getColor());
@@ -20,12 +21,13 @@ public class JacksonParser {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        return car;
     }
 
-    public static void parseCarFromObjectToJson(Car car) {
+    public static void parseCarFromObjectToJson(Car car, File file) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File("src\\main\\java\\jackson\\car.json"), car);
+            objectMapper.writeValue(file, car);
         } catch (IOException e) {
             e.printStackTrace();
         }

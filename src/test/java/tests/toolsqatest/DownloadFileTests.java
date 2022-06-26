@@ -19,9 +19,9 @@ public class DownloadFileTests extends BaseTest {
     }
 
     @Test
-    public void downloadFile() throws InterruptedException {
+    public void downloadFile() {
         DownloadUploadFilePage downloadFilePage = new DownloadUploadFilePage(driver);
-        boolean fileIsPresentInFolder = downloadFilePage.downloadFile().isFileInFolder();
+        boolean fileIsPresentInFolder = downloadFilePage.downloadFile().isFileInFolder("sampleFile.jpeg");
         Assert.assertTrue(fileIsPresentInFolder, "Downloaded file is not found.");
     }
 

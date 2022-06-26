@@ -18,11 +18,11 @@ public class DragAndDropPage extends BasePage {
     @FindBy(id = "droppable")
     WebElement dropPlace;
 
+    private static final Logger LOG = Logger.getLogger(DragAndDropPage.class);
+
     public String getDropPlaceTitle() {
         return dropPlace.getText();
     }
-
-    private static final Logger LOG = Logger.getLogger(DragAndDropPage.class);
 
     public DragAndDropPage(WebDriver driver) {
         super(driver);

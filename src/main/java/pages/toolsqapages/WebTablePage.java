@@ -22,10 +22,9 @@ public class WebTablePage extends BasePage {
 
     public int getColumnIndex(String columnName) {
         List<WebElement> columnHeaders = driver.findElements(By.xpath("//*[@id='customers']/tbody/tr/th"));
-        for (int i = 1; i <= columnHeaders.size(); i++) {
-            WebElement columnHeader = driver.findElement(By.xpath(String.format("//*[@id='customers']/tbody/tr/th[%s]", i)));
-            if (columnHeader.getText().equals(columnName)) {
-                return i;
+        for (int i = 0; i <= columnHeaders.size(); i++) {
+            if (columnHeaders.get(i).getText().equals(columnName)) {
+                return i + 1;
             }
         }
         return INDEX_NOT_FOUND;

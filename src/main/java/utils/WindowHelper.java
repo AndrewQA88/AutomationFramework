@@ -14,12 +14,15 @@ public class WindowHelper {
         LOG.info("JS opens new window with URL: " + pageUrl);
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("window.open('" + pageUrl + "');");
-        ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs2.get(1));
+        switchToTab(driver);
     }
 
     public static void switchToTab(WebDriver driver) {
         ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs2.get(1));
+        if (!tabs2.isEmpty()) {
+            driver.switchTo().window(tabs2.get(1));
+        } else {
+            LOG.info("New tab was not opened.");
+        }
     }
 }
