@@ -3,7 +3,13 @@
 <suite name="All Test Suit">
     <test name="Regression">
         <classes>
-            <class name="tests.googletests.GoogleTests"/>
+            <class name="tests.googletest.GoogleTests"/>
+            <class name="tests.toolsqatest.AlertTests"/>
+            <class name="tests.toolsqatest.CheckBoxTests"/>
+            <class name="tests.toolsqatest.DragAndDropTests"/>
+            <class name="tests.toolsqatest.RadioButtonTests"/>
+            <class name="tests.toolsqatest.TextBoxTests"/>
+            <class name="tests.toolsqatest.WebTableTests"/>
         </classes>
     </test>
 </suite>

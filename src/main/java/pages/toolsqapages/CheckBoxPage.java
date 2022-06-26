@@ -2,7 +2,6 @@ package pages.toolsqapages;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +22,57 @@ public class CheckBoxPage extends BasePage {
 
     @FindBy(xpath = "//span[@class='text-success']")
     private List<WebElement> items;
+
+    @FindBy(xpath = "//input[@id='tree-node-home']")
+    private WebElement homeCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-desktop']")
+    private WebElement desktopCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-notes']")
+    private WebElement notesCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-commands']")
+    private WebElement commandsCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-documents']")
+    private WebElement documentsCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-workspace']")
+    private WebElement workspaceCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-react']")
+    private WebElement reactCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-angular']")
+    private WebElement angularCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-veu']")
+    private WebElement veuCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-office']")
+    private WebElement officeCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-public']")
+    private WebElement publicCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-private']")
+    private WebElement privateCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-classified']")
+    private WebElement classifiedCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-general']")
+    private WebElement generalCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-downloads']")
+    private WebElement downloadsCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-wordFile']")
+    private WebElement wordFileCheckboxState;
+
+    @FindBy(xpath = "//input[@id='tree-node-excelFile']")
+    private WebElement excelFileCheckboxState;
 
     private static final Logger LOG = Logger.getLogger(CheckBoxPage.class);
 
@@ -54,70 +104,70 @@ public class CheckBoxPage extends BasePage {
     }
 
     public boolean isHomeCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-home']")).isSelected();
+        return homeCheckboxState.isSelected();
     }
 
     public boolean isDesktopCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-desktop']")).isSelected();
+        return desktopCheckboxState.isSelected();
     }
 
     public boolean isNotesCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-notes']")).isSelected();
+        return notesCheckboxState.isSelected();
     }
 
     public boolean isCommandsCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-commands']")).isSelected();
+        return commandsCheckboxState.isSelected();
     }
 
     public boolean isDocumentsCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-documents']")).isSelected();
+        return documentsCheckboxState.isSelected();
     }
 
     public boolean isWorkSpaceSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-workspace']")).isSelected();
+        return workspaceCheckboxState.isSelected();
     }
 
     public boolean isReactCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-react']")).isSelected();
+        return reactCheckboxState.isSelected();
     }
 
     public boolean isAngularCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-angular']")).isSelected();
+        return angularCheckboxState.isSelected();
     }
 
     public boolean isVeuCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-veu']")).isSelected();
+        return veuCheckboxState.isSelected();
     }
 
     public boolean isOfficeCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-office']")).isSelected();
+        return officeCheckboxState.isSelected();
     }
 
     public boolean isPublicCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-public']")).isSelected();
+        return publicCheckboxState.isSelected();
     }
 
     public boolean isPrivateCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-private']")).isSelected();
+        return privateCheckboxState.isSelected();
     }
 
     public boolean isClassifiedCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-classified']")).isSelected();
+        return classifiedCheckboxState.isSelected();
     }
 
     public boolean isGeneralCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-general']")).isSelected();
+        return generalCheckboxState.isSelected();
     }
 
     public boolean isDownloadsCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-downloads']")).isSelected();
+        return downloadsCheckboxState.isSelected();
     }
 
     public boolean isWordFileCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-wordFile']")).isSelected();
+        return wordFileCheckboxState.isSelected();
     }
 
     public boolean isExcelFileCheckboxSelected() {
-        return driver.findElement(By.xpath("//input[@id='tree-node-excelFile']")).isSelected();
+        return excelFileCheckboxState.isSelected();
     }
 }
