@@ -10,22 +10,22 @@ import pages.BasePage;
 public class DragAndDropPage extends BasePage {
 
     @FindBy(id = "droppableExample-tab-simple")
-    WebElement simpleTestTab;
+    private WebElement simpleTestTab;
 
     @FindBy(id = "draggable")
-    WebElement dragElement;
+    private WebElement dragElement;
 
     @FindBy(id = "droppable")
-    WebElement dropPlace;
+    private WebElement dropPlace;
 
     private static final Logger LOG = Logger.getLogger(DragAndDropPage.class);
 
-    public String getDropPlaceTitle() {
-        return dropPlace.getText();
-    }
-
     public DragAndDropPage(WebDriver driver) {
         super(driver);
+    }
+
+    public String getDropPlaceTitle() {
+        return dropPlace.getText();
     }
 
     public void simpleDragAndDropTest() {

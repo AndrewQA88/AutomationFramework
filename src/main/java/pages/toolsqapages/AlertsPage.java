@@ -12,22 +12,22 @@ import utils.AlertHelper;
 public class AlertsPage extends BasePage {
 
     @FindBy(id = "alertButton")
-    WebElement alertButton;
+    private WebElement alertButton;
 
     @FindBy(id = "timerAlertButton")
-    WebElement timerAlertButton;
+    private WebElement timerAlertButton;
 
     @FindBy(id = "confirmButton")
-    WebElement confirmBoxButton;
+    private WebElement confirmBoxButton;
 
     @FindBy(id = "promtButton")
-    WebElement promptButton;
+    private WebElement promptButton;
 
     @FindBy(xpath = "//span[@id='confirmResult']")
-    WebElement confirmResult;
+    private WebElement confirmResult;
 
     @FindBy(xpath = "//span[@id='promptResult']")
-    WebElement promptResult;
+    private WebElement promptResult;
 
     private static final Logger LOG = Logger.getLogger(AlertsPage.class);
 

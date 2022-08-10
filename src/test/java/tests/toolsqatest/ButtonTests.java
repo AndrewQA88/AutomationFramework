@@ -20,20 +20,20 @@ public class ButtonTests extends BaseTest {
     public void doubleClickOnButton() {
         ButtonsPage buttonsPage = new ButtonsPage(driver);
         buttonsPage.doubleClickOnButton();
-        Assert.assertEquals(buttonsPage.getDoubleClickMessageText().getText(), "You have done a double click", "Actual message is not equals with expected");
+        Assert.assertEquals(buttonsPage.getDoubleClickMessageText(), "You have done a double click", "Actual message is not equals with expected");
     }
 
     @Test
     public void rightClickOnButton() {
         ButtonsPage buttonsPage = new ButtonsPage(driver);
         buttonsPage.rightClickOnButton();
-        Assert.assertEquals(buttonsPage.getRightClickMessageText().getText(), "You have done a right click", "Actual message is not equals with expected");
+        Assert.assertEquals(buttonsPage.getRightClickMessageText(), "You have done a right click", "Actual message is not equals with expected");
     }
 
     @Test
     public void clickOnButtonWithDynamicId() {
         ButtonsPage buttonsPage = new ButtonsPage(driver);
         buttonsPage.clickOnButtonWithDynamic();
-        Assert.assertEquals(buttonsPage.getClickMeMessageText().getText(), "You have done a dynamic click", "Actual message is not equals with expected");
+        Assert.assertEquals(buttonsPage.getClickMeMessageText(), "You have done a dynamic click", "Actual message is not equals with expected");
     }
 }

@@ -16,26 +16,19 @@ public class JacksonParser {
         Car car = new Car();
         try {
             car = objectMapper.readValue(json, Car.class);
-            LOG.info(car.getColor());
-            LOG.info(car.getType());
+            LOG.info(car.toString());
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage(), e);
         }
         return car;
     }
 
-    public static void parseCarFromObjectToJson(Car car, File file) {
+    public static void convertCarObjectToJson(Car car, File file) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writeValue(file, car);
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            String carAsString = objectMapper.writeValueAsString(car);
-            LOG.info(carAsString);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage(), e);
         }
     }
 }

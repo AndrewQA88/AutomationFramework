@@ -5,14 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
-import utils.Waiters;
 
 import java.io.File;
 
 public class DownloadUploadFilePage extends BasePage {
 
-    public static File folder = new File("C:" + File.separator + "Users" + File.separator + "a.hladkyi" + File.separator
-            + "automation-framework" + File.separator + "test-output" + File.separator + "default-download-location");
+    public static File folder = new File("test-output" + File.separator + "default-download-location");
 
     @FindBy(id = "downloadButton")
     private WebElement downloadButton;
@@ -38,21 +36,6 @@ public class DownloadUploadFilePage extends BasePage {
     public void uploadFile(String filePath) {
         LOG.info("Press 'Upload' button.");
         uploadButton.sendKeys(filePath);
-    }
-
-    public boolean isFileInFolder(String expectedFileName) {
-        Waiters.waitUntilFilePresentInDirectory(driver, folder, expectedFileName);
-        return true;
-    }
-
-    public void cleanFolder() {
-        File[] files = folder.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                LOG.info("File: '" + file.getName() + "' deleted.");
-                file.delete();
-            }
-        }
     }
 
     public String getUploadedFilePath() {

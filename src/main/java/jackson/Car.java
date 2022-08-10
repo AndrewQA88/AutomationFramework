@@ -10,7 +10,6 @@ public class Car {
 
     private String color;
     private String type;
-    private static String json = "{ \"color\" : \"Black\", \"type\" : \"BMW\", \"engine\" : \"rotor\" }";
     private static File file = new File("src" + File.separator + "main" + File.separator + "java" + File.separator
             + "jackson" + File.separator + "car.json");
 
@@ -39,5 +38,13 @@ public class Car {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "color='" + color + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

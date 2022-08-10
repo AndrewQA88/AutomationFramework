@@ -33,16 +33,16 @@ public class ButtonsPage extends BasePage {
         super(driver);
     }
 
-    public WebElement getDoubleClickMessageText() {
-        return doubleClickMessageText;
+    public String getDoubleClickMessageText() {
+        return doubleClickMessageText.getText();
     }
 
-    public WebElement getRightClickMessageText() {
-        return rightClickMessageText;
+    public String getRightClickMessageText() {
+        return rightClickMessageText.getText();
     }
 
-    public WebElement getClickMeMessageText() {
-        return clickMeMessageText;
+    public String getClickMeMessageText() {
+        return clickMeMessageText.getText();
     }
 
     public void doubleClickOnButton() {

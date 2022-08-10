@@ -20,8 +20,8 @@ public class WebDriverManager {
     private static final String WINDOW_WIDTH = ResourceBundleFileReader.getProperty("windowWidth");
     private static final String WINDOW_HEIGHT = ResourceBundleFileReader.getProperty("windowHeight");
     private static final String DOWNLOAD_DEFAULT_DIRECTORY = "download.default_directory";
-    private static final String LOCATION_PATH = "C:" + File.separator + "Users" + File.separator + "a.hladkyi" + File.separator + "automation-framework"
-            + File.separator + "test-output" + File.separator + "default-download-location";
+    private static final String LOCATION_PATH = "test-output" +File.separator + "default-download-location";
+
     private static final Logger LOG = Logger.getLogger(WebDriverManager.class);
 
     private static WebDriver driver;

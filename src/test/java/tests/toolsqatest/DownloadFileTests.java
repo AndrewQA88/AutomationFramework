@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.toolsqapages.DownloadUploadFilePage;
 import tests.base.BaseTest;
+import utils.FileHelper;
 
 public class DownloadFileTests extends BaseTest {
 
@@ -21,13 +22,13 @@ public class DownloadFileTests extends BaseTest {
     @Test
     public void downloadFile() {
         DownloadUploadFilePage downloadFilePage = new DownloadUploadFilePage(driver);
-        boolean fileIsPresentInFolder = downloadFilePage.downloadFile().isFileInFolder("sampleFile.jpeg");
+        downloadFilePage.downloadFile();
+        boolean fileIsPresentInFolder = FileHelper.isFileInFolder(driver, "sampleFile.jpeg");
         Assert.assertTrue(fileIsPresentInFolder, "Downloaded file is not found.");
     }
 
     @AfterMethod(description = "Clean folder with files.")
     public void cleanFolder() {
-        DownloadUploadFilePage downloadFilePage = new DownloadUploadFilePage(driver);
-        downloadFilePage.cleanFolder();
+        FileHelper.cleanFolder();
     }
 }

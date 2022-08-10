@@ -12,7 +12,7 @@ import static org.apache.commons.lang3.StringUtils.INDEX_NOT_FOUND;
 
 public class WebTablePage extends BasePage {
 
-    WebElement rowText = driver.findElement(By.xpath(String.format("//*[@id='customers']/tbody/tr[2]/td[%s]", getColumnIndex("Country"))));
+    private WebElement rowText = driver.findElement(By.xpath(String.format("//*[@id='customers']/tbody/tr[2]/td[%s]", getColumnIndex("Country"))));
 
     private static final Logger LOG = Logger.getLogger(WebTablePage.class);
 
