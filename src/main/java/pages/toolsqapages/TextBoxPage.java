@@ -1,11 +1,11 @@
 package pages.toolsqapages;
 
-import Utils.WebElementHelper;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+import utils.WebElementHelper;
 
 public class TextBoxPage extends BasePage {
 
@@ -74,6 +74,6 @@ public class TextBoxPage extends BasePage {
         LOG.info("Type permanent address: " + permanentAddress);
         this.permanentAddress.sendKeys(permanentAddress);
         LOG.info("Press submit");
-        WebElementHelper.jsClick(driver,submit);
+        WebElementHelper.jsClick(driver, submit);
     }
 }
